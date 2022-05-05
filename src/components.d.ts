@@ -20,6 +20,11 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface MyNavbar {
+    }
+    interface TestComponent {
+        "word": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +33,22 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLMyNavbarElement extends Components.MyNavbar, HTMLStencilElement {
+    }
+    var HTMLMyNavbarElement: {
+        prototype: HTMLMyNavbarElement;
+        new (): HTMLMyNavbarElement;
+    };
+    interface HTMLTestComponentElement extends Components.TestComponent, HTMLStencilElement {
+    }
+    var HTMLTestComponentElement: {
+        prototype: HTMLTestComponentElement;
+        new (): HTMLTestComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "my-navbar": HTMLMyNavbarElement;
+        "test-component": HTMLTestComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +66,15 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface MyNavbar {
+    }
+    interface TestComponent {
+        "word"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "my-navbar": MyNavbar;
+        "test-component": TestComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +82,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-navbar": LocalJSX.MyNavbar & JSXBase.HTMLAttributes<HTMLMyNavbarElement>;
+            "test-component": LocalJSX.TestComponent & JSXBase.HTMLAttributes<HTMLTestComponentElement>;
         }
     }
 }
