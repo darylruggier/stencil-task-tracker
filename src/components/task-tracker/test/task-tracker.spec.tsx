@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { MyNavbar } from '../my-navbar';
+import { TaskTracker } from '../task-tracker';
 
-describe('my-navbar', () => {
+describe('task-tracker', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [MyNavbar],
-      html: `<my-navbar></my-navbar>`,
+      components: [TaskTracker],
+      html: `<task-tracker></task-tracker>`,
     });
     expect(page.root).toEqualHtml(`
-      <my-navbar>
+      <task-tracker>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </my-navbar>
+      </task-tracker>
     `);
   });
 });

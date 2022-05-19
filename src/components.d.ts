@@ -6,84 +6,47 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MyButton {
+        "text": string;
     }
-    interface MyNavbar {
-    }
-    interface TestComponent {
-        "word": string;
+    interface TaskTracker {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMyButtonElement: {
+        prototype: HTMLMyButtonElement;
+        new (): HTMLMyButtonElement;
     };
-    interface HTMLMyNavbarElement extends Components.MyNavbar, HTMLStencilElement {
+    interface HTMLTaskTrackerElement extends Components.TaskTracker, HTMLStencilElement {
     }
-    var HTMLMyNavbarElement: {
-        prototype: HTMLMyNavbarElement;
-        new (): HTMLMyNavbarElement;
-    };
-    interface HTMLTestComponentElement extends Components.TestComponent, HTMLStencilElement {
-    }
-    var HTMLTestComponentElement: {
-        prototype: HTMLTestComponentElement;
-        new (): HTMLTestComponentElement;
+    var HTMLTaskTrackerElement: {
+        prototype: HTMLTaskTrackerElement;
+        new (): HTMLTaskTrackerElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
-        "my-navbar": HTMLMyNavbarElement;
-        "test-component": HTMLTestComponentElement;
+        "my-button": HTMLMyButtonElement;
+        "task-tracker": HTMLTaskTrackerElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MyButton {
+        "text"?: string;
     }
-    interface MyNavbar {
-    }
-    interface TestComponent {
-        "word"?: string;
+    interface TaskTracker {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
-        "my-navbar": MyNavbar;
-        "test-component": TestComponent;
+        "my-button": MyButton;
+        "task-tracker": TaskTracker;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "my-navbar": LocalJSX.MyNavbar & JSXBase.HTMLAttributes<HTMLMyNavbarElement>;
-            "test-component": LocalJSX.TestComponent & JSXBase.HTMLAttributes<HTMLTestComponentElement>;
+            "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
+            "task-tracker": LocalJSX.TaskTracker & JSXBase.HTMLAttributes<HTMLTaskTrackerElement>;
         }
     }
 }
