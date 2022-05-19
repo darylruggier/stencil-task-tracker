@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, State } from '@stencil/core';
 
 @Component({
   tag: 'task-tracker',
@@ -6,14 +6,21 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class TaskTracker {
+  @State() isOpen: boolean = false;
+
   render() {
     return (
       <div class="container">
-        <div class="task-tracker-title">
+        <div class="task-tracker-top">
           <h1>StencilJS Task Tracker</h1>
-          <button class="btn">Add Task</button>
+          <button onClick={() => (this.isOpen = !this.isOpen)} class="btn">
+            Add Task
+          </button>
         </div>
-        <div class="task-tracker-body"></div>
+        {this.isOpen && <add-task-modal></add-task-modal>}
+        <div class="task-tracker-body">
+          <my-tasks></my-tasks>
+        </div>
       </div>
     );
   }

@@ -6,18 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AddTaskModal {
+    }
     interface MyButton {
         "text": string;
+    }
+    interface MyTasks {
     }
     interface TaskTracker {
     }
 }
 declare global {
+    interface HTMLAddTaskModalElement extends Components.AddTaskModal, HTMLStencilElement {
+    }
+    var HTMLAddTaskModalElement: {
+        prototype: HTMLAddTaskModalElement;
+        new (): HTMLAddTaskModalElement;
+    };
     interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
     }
     var HTMLMyButtonElement: {
         prototype: HTMLMyButtonElement;
         new (): HTMLMyButtonElement;
+    };
+    interface HTMLMyTasksElement extends Components.MyTasks, HTMLStencilElement {
+    }
+    var HTMLMyTasksElement: {
+        prototype: HTMLMyTasksElement;
+        new (): HTMLMyTasksElement;
     };
     interface HTMLTaskTrackerElement extends Components.TaskTracker, HTMLStencilElement {
     }
@@ -26,18 +42,26 @@ declare global {
         new (): HTMLTaskTrackerElement;
     };
     interface HTMLElementTagNameMap {
+        "add-task-modal": HTMLAddTaskModalElement;
         "my-button": HTMLMyButtonElement;
+        "my-tasks": HTMLMyTasksElement;
         "task-tracker": HTMLTaskTrackerElement;
     }
 }
 declare namespace LocalJSX {
+    interface AddTaskModal {
+    }
     interface MyButton {
         "text"?: string;
+    }
+    interface MyTasks {
     }
     interface TaskTracker {
     }
     interface IntrinsicElements {
+        "add-task-modal": AddTaskModal;
         "my-button": MyButton;
+        "my-tasks": MyTasks;
         "task-tracker": TaskTracker;
     }
 }
@@ -45,7 +69,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "add-task-modal": LocalJSX.AddTaskModal & JSXBase.HTMLAttributes<HTMLAddTaskModalElement>;
             "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
+            "my-tasks": LocalJSX.MyTasks & JSXBase.HTMLAttributes<HTMLMyTasksElement>;
             "task-tracker": LocalJSX.TaskTracker & JSXBase.HTMLAttributes<HTMLTaskTrackerElement>;
         }
     }
