@@ -10,8 +10,8 @@ export class TaskTracker {
   @State() tasks: Object[];
 
   addTask = task => {
-    this.tasks = [...this.tasks, task];
-    console.log('pushed task');
+    this.tasks.push(task);
+    console.log('pushed task, total tasks:', this.tasks);
   };
 
   render() {
