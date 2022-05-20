@@ -7,36 +7,19 @@
   margin: auto;
   border: 1px solid gray;
   border-radius: 6px;
-  height: 60vh;
+  height: 80vh;
   width: 50vw;
 
   .task-tracker-top {
     height: 10vh;
     width: 50vw;
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-  }
+    justify-content: space-evenly;
+    padding: 15px;
 
-  .btn {
-    align-self: center;
-    width: 115px;
-    height: 45px;
-    font-size: large;
-    color: black;
-    background-color: #82c6ed;
-    border-radius: 25px;
-    cursor: pointer;
-    border: none;
-    transition: 0.3s;
-    font-family: inherit;
-
-    &:active {
-      transform: scale(0.9);
-    }
-
-    &:hover {
-      background-color: #6ea6f1;
+    h1,
+    .btn {
+      align-self: center;
     }
   }
 }

@@ -9,6 +9,7 @@ export namespace Components {
     interface AddTaskModal {
     }
     interface MyButton {
+        "color": string;
         "text": string;
     }
     interface MyTasks {
@@ -52,6 +53,8 @@ declare namespace LocalJSX {
     interface AddTaskModal {
     }
     interface MyButton {
+        "color"?: string;
+        "onOnClick"?: (event: CustomEvent<any>) => void;
         "text"?: string;
     }
     interface MyTasks {
