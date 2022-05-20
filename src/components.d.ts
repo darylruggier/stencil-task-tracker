@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AddTaskModal {
+        "onAdd": Function;
     }
     interface MyButton {
         "color": string;
@@ -51,6 +52,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AddTaskModal {
+        "onAdd"?: Function;
     }
     interface MyButton {
         "color"?: string;

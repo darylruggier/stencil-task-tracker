@@ -1,4 +1,4 @@
-import { Component, h, State } from '@stencil/core';
+import { Component, h, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'task-tracker',
@@ -7,6 +7,12 @@ import { Component, h, State } from '@stencil/core';
 })
 export class TaskTracker {
   @State() isOpen: boolean = false;
+  @State() tasks: Object[];
+
+  addTask = task => {
+    this.tasks = [...this.tasks, task];
+    console.log('pushed task');
+  };
 
   render() {
     return (
@@ -15,7 +21,7 @@ export class TaskTracker {
           <h1>StencilJS Task Tracker</h1>
           <my-button color={this.isOpen ? 'red' : '#82c6ed'} text={this.isOpen ? 'Close' : 'Add Task'} onClick={() => (this.isOpen = !this.isOpen)} class="btn"></my-button>
         </div>
-        {this.isOpen && <add-task-modal></add-task-modal>}
+        {this.isOpen && <add-task-modal onAdd={e => this.addTask(e)}></add-task-modal>}
         <div class="task-tracker-body">
           <my-tasks></my-tasks>
         </div>
