@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+button {
+  width: 115px;
+  height: 45px;
+  font-size: large;
+  color: black;
+  background-color: #82c6ed;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  font-family: inherit;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:hover {
+    background-color: #6ea6f1;
+  }
+}

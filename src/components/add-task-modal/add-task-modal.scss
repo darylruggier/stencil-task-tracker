@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.add-task-form {
+  display: flex;
+  justify-content: center;
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    input {
+      width: 20vw;
+    }
+
+    .task-set-reminder {
+      display: flex;
+    }
+  }
+}

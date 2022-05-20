@@ -1,4 +1,4 @@
-import { Component, h, State, Event, EventEmitter } from '@stencil/core';
+import { Component, h, State } from '@stencil/core';
 
 @Component({
   tag: 'task-tracker',
@@ -7,11 +7,14 @@ import { Component, h, State, Event, EventEmitter } from '@stencil/core';
 })
 export class TaskTracker {
   @State() isOpen: boolean = false;
-  @State() tasks: Object[];
+  @State() tasks: Object[] = []; // TODO: Add watch decorator?
+  // @State() id: number = 0;
 
   addTask = task => {
-    this.tasks.push(task);
-    console.log('pushed task, total tasks:', this.tasks);
+    const newTask = { ...task };
+    this.tasks.push([...this.tasks, newTask]);
+    console.log('added new task');
+    console.log(this.tasks.length);
   };
 
   render() {
@@ -22,9 +25,7 @@ export class TaskTracker {
           <my-button color={this.isOpen ? 'red' : '#82c6ed'} text={this.isOpen ? 'Close' : 'Add Task'} onClick={() => (this.isOpen = !this.isOpen)} class="btn"></my-button>
         </div>
         {this.isOpen && <add-task-modal onAdd={e => this.addTask(e)}></add-task-modal>}
-        <div class="task-tracker-body">
-          <my-tasks></my-tasks>
-        </div>
+        <div class="task-tracker-body">{this.tasks.length > 0 ? <my-tasks tasks={this.tasks}></my-tasks> : 'No current tasks.'}</div>
       </div>
     );
   }
