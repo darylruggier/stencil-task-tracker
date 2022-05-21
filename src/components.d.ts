@@ -14,9 +14,13 @@ export namespace Components {
         "text": string;
     }
     interface MyTask {
+        "onDelete": (task: any) => void;
+        "onToggle": (task: any) => void;
         "task": any;
     }
     interface MyTasks {
+        "onDelete": any;
+        "onToggle": any;
         "tasks": Object[];
     }
     interface TaskTracker {
@@ -71,9 +75,13 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface MyTask {
+        "onDelete"?: (task: any) => void;
+        "onToggle"?: (task: any) => void;
         "task"?: any;
     }
     interface MyTasks {
+        "onDelete"?: any;
+        "onToggle"?: any;
         "tasks"?: Object[];
     }
     interface TaskTracker {

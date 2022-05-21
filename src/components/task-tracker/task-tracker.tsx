@@ -17,6 +17,16 @@ export class TaskTracker {
     console.log(this.tasks.length);
   };
 
+  deleteTask = (id: number) => {
+    console.log('1)');
+    this.tasks.filter(task => task[0] !== id); // TODO: fix this not working ?
+    console.log('deleted task');
+  };
+
+  toggleReminder = (id: number) => {
+    // this.tasks.map(task => (task.id === id ? { ...task, setReminder: !task.setReminder } : task.setReminder)); // TODO: fix this
+  };
+
   render() {
     return (
       <div class="container">
@@ -25,7 +35,7 @@ export class TaskTracker {
           <my-button color={this.isOpen ? 'red' : '#82c6ed'} text={this.isOpen ? 'Close' : 'Add Task'} onClick={() => (this.isOpen = !this.isOpen)} class="btn"></my-button>
         </div>
         {this.isOpen && <add-task-modal onAdd={e => this.addTask(e)}></add-task-modal>}
-        <div class="task-tracker-body">{this.tasks.length > 0 ? <my-tasks tasks={this.tasks}></my-tasks> : 'No current tasks.'}</div>
+        <div class="task-tracker-body">{this.tasks.length > 0 ? <my-tasks onDelete={this.deleteTask} tasks={this.tasks}></my-tasks> : 'No current tasks.'}</div>
       </div>
     );
   }

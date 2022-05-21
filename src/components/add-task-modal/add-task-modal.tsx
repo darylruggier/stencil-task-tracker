@@ -44,15 +44,15 @@ export class AddTaskModal {
           <form class="form" onSubmit={e => this.handleSubmit(e)}>
             <div class="task-description">
               <h4>Task Description</h4>
-              <input type="text" onInput={e => this.setTaskDescription(e)} />
+              <input type="text" value={this.description} onInput={e => this.setTaskDescription(e)} />
             </div>
             <div class="task-due-date">
               <h4>Task Due Date</h4>
-              <input type="text" onInput={e => this.setTaskDueDate(e)} />
+              <input type="text" value={this.dueDate} onInput={e => this.setTaskDueDate(e)} />
             </div>
             <div class="task-set-reminder">
               <h4>Set Reminder</h4>
-              <input type="checkbox" onChange={() => (this.setReminder = !this.setReminder)} />
+              <input type="checkbox" checked={this.setReminder} onChange={() => (this.setReminder = !this.setReminder)} />
             </div>
             <div class="add-task-submit">
               <input type="submit" value="Save Task" />
