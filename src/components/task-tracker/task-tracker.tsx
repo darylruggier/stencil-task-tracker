@@ -1,5 +1,11 @@
 import { Component, h, State } from '@stencil/core';
 
+export interface Task {
+  id: number;
+  description: string;
+  dueDate: string;
+}
+
 @Component({
   tag: 'task-tracker',
   styleUrl: 'task-tracker.scss',
@@ -7,20 +13,21 @@ import { Component, h, State } from '@stencil/core';
 })
 export class TaskTracker {
   @State() isOpen: boolean = false;
-  @State() tasks: Object[] = [];
+  @State() tasks: Task[] = [];
   // @State() id: number = 0;
 
-  addTask = task => {
+  addTask = (task: Task) => {
     const newTask = { ...task };
     this.tasks = [...this.tasks, newTask];
     console.log('added new task');
     console.log(this.tasks.length);
+    console.log('Tasks: ', this.tasks);
   };
 
   deleteTask = (id: number) => {
-    console.log('1)');
-    this.tasks.filter(task => task[0] !== id); // TODO: fix this not working ?
+    this.tasks = this.tasks.filter((task: Task) => task.id !== id);
     console.log('deleted task');
+    console.log('Tasks: ', this.tasks);
   };
 
   toggleReminder = (id: number) => {
@@ -35,7 +42,9 @@ export class TaskTracker {
           <my-button color={this.isOpen ? 'red' : '#82c6ed'} text={this.isOpen ? 'Close' : 'Add Task'} onClick={() => (this.isOpen = !this.isOpen)} class="btn"></my-button>
         </div>
         {this.isOpen && <add-task-modal onAdd={e => this.addTask(e)}></add-task-modal>}
-        <div class="task-tracker-body">{this.tasks.length > 0 ? <my-tasks onDelete={this.deleteTask} tasks={this.tasks}></my-tasks> : 'No current tasks.'}</div>
+        <div class="task-tracker-body">
+          {this.tasks.length > 0 ? <my-tasks tasks={this.tasks} onDelete={this.deleteTask} onToggle={this.toggleReminder}></my-tasks> : 'No current tasks.'}
+        </div>
       </div>
     );
   }
