@@ -7,12 +7,12 @@ import { Component, h, State } from '@stencil/core';
 })
 export class TaskTracker {
   @State() isOpen: boolean = false;
-  @State() tasks: Object[] = []; // TODO: Add watch decorator?
+  @State() tasks: Object[] = [];
   // @State() id: number = 0;
 
   addTask = task => {
     const newTask = { ...task };
-    this.tasks.push([...this.tasks, newTask]);
+    this.tasks = [...this.tasks, newTask];
     console.log('added new task');
     console.log(this.tasks.length);
   };
