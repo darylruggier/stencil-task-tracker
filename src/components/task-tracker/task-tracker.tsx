@@ -4,6 +4,7 @@ export interface Task {
   id: number;
   description: string;
   dueDate: string;
+  reminder: boolean;
 }
 
 @Component({
@@ -31,7 +32,7 @@ export class TaskTracker {
   };
 
   toggleReminder = (id: number) => {
-    // this.tasks.map(task => (task.id === id ? { ...task, setReminder: !task.setReminder } : task.setReminder)); // TODO: fix this
+    this.tasks = this.tasks.map((task: Task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)); // TODO: fix this
   };
 
   render() {

@@ -1,4 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
+import { Task } from '../task-tracker/task-tracker';
 
 @Component({
   tag: 'my-task',
@@ -6,9 +7,9 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class MyTask {
-  @Prop() task: any;
-  @Prop() onToggle: (task: any) => void; // use event instead ?
-  @Prop() onDelete: (task: any) => void;
+  @Prop() task: Task;
+  @Prop() onToggle: (id: number) => void; // use event instead ?
+  @Prop() onDelete: (id: number) => void;
 
   render() {
     return (

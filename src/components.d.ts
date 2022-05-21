@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Task } from "./components/task-tracker/task-tracker";
 export namespace Components {
     interface AddTaskModal {
         "onAdd": (task: any) => void;
@@ -14,14 +15,14 @@ export namespace Components {
         "text": string;
     }
     interface MyTask {
-        "onDelete": (task: any) => void;
-        "onToggle": (task: any) => void;
-        "task": any;
+        "onDelete": (id: number) => void;
+        "onToggle": (id: number) => void;
+        "task": Task;
     }
     interface MyTasks {
-        "onDelete": any;
-        "onToggle": any;
-        "tasks": Object[];
+        "onDelete": (id: number) => void;
+        "onToggle": (id: number) => void;
+        "tasks": Task[];
     }
     interface TaskTracker {
     }
@@ -75,14 +76,14 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface MyTask {
-        "onDelete"?: (task: any) => void;
-        "onToggle"?: (task: any) => void;
-        "task"?: any;
+        "onDelete"?: (id: number) => void;
+        "onToggle"?: (id: number) => void;
+        "task"?: Task;
     }
     interface MyTasks {
-        "onDelete"?: any;
-        "onToggle"?: any;
-        "tasks"?: Object[];
+        "onDelete"?: (id: number) => void;
+        "onToggle"?: (id: number) => void;
+        "tasks"?: Task[];
     }
     interface TaskTracker {
     }
