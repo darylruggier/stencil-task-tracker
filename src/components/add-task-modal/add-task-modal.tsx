@@ -21,7 +21,7 @@ export class AddTaskModal {
       alert('Please enter a task description');
       return;
     }
-    this.onAdd({ id: this.id, description: this.description, due: this.dueDate, reminder: this.setReminder });
+    this.onAdd({ id: this.id, description: this.description, dueDate: this.dueDate, reminder: this.setReminder });
 
     this.description = '';
     this.dueDate = '';

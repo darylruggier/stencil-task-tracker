@@ -4,11 +4,12 @@
 
 .container {
   display: block;
-  margin: auto;
+  margin: 30px auto;
   border: 1px solid gray;
   border-radius: 6px;
   height: 80vh;
   width: 50vw;
+  overflow: scroll;
 
   .task-tracker-top {
     height: 10vh;
@@ -21,5 +22,10 @@
     .btn {
       align-self: center;
     }
+  }
+
+  .no-task-text {
+    display: flex;
+    justify-content: center;
   }
 }

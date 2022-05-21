@@ -32,7 +32,7 @@ export class TaskTracker {
   };
 
   toggleReminder = (id: number) => {
-    this.tasks = this.tasks.map((task: Task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)); // TODO: fix this
+    this.tasks = this.tasks.map((task: Task) => (task.id === id ? { ...task, reminder: !task.reminder } : task));
   };
 
   render() {
@@ -44,7 +44,11 @@ export class TaskTracker {
         </div>
         {this.isOpen && <add-task-modal onAdd={e => this.addTask(e)}></add-task-modal>}
         <div class="task-tracker-body">
-          {this.tasks.length > 0 ? <my-tasks tasks={this.tasks} onDelete={this.deleteTask} onToggle={this.toggleReminder}></my-tasks> : 'No current tasks.'}
+          {this.tasks.length > 0 ? (
+            <my-tasks tasks={this.tasks} onDelete={this.deleteTask} onToggle={this.toggleReminder}></my-tasks>
+          ) : (
+            <p class="no-task-text">No current tasks.</p>
+          )}
         </div>
       </div>
     );
