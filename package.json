@@ -23,15 +23,27 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@stencil/core": "2.15.2",
     "stencil": "^0.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
     "@stencil/sass": "^1.5.2",
+    "@storybook/addon-actions": "^6.5.5",
+    "@storybook/addon-essentials": "^6.5.5",
+    "@storybook/addon-interactions": "^6.5.5",
+    "@storybook/addon-links": "^6.5.5",
+    "@storybook/builder-webpack4": "^6.5.5",
+    "@storybook/html": "^6.5.5",
+    "@storybook/manager-webpack4": "^6.5.5",
+    "@storybook/testing-library": "^0.0.11",
     "@types/jest": "^27.0.3",
+    "babel-loader": "^8.2.5",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^14.1.1"
